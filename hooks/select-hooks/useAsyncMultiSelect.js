@@ -66,11 +66,6 @@ const useAsyncMultiSelect = (props, ref) => {
     });
   }, [selectedOptions, displayOptions, props.valueKey]);
 
-  // watch value change
-  localRef.current.setLoaders = setLoaders;
-  localRef.current.getOptionsByValue = props.getOptionsByValue;
-  localRef.current.setSelectedOptions = setSelectedOptions;
-  localRef.current.valueKey = props.valueKey;
   useEffect(() => {
     let nextSelectedOptions = [];
     const valueDontHaveOptionYet = [];
@@ -86,25 +81,25 @@ const useAsyncMultiSelect = (props, ref) => {
     }
 
     if (!valueDontHaveOptionYet.length) {
-      localRef.current.setSelectedOptions(nextSelectedOptions);
+      setSelectedOptions(nextSelectedOptions);
     } else {
-      localRef.current.setLoaders(prev => ({
+      setLoaders(prev => ({
         ...prev,
         isSelectedLoading: true,
         isSelectedSuccess: false,
         isSelectedFailure: false,
       }));
-      localRef.current.getOptionsByValue({
+      props.getOptionsByValue({
         selectedValue: valueDontHaveOptionYet,
       }).then((options) => {
-        localRef.current.setLoaders(prev => ({
+        setLoaders(prev => ({
           ...prev,
           isSelectedLoading: false,
           isSelectedSuccess: true,
           isSelectedFailure: false,
         }));
         const _options = reduce(options, (rs, option) => {
-          rs[option[localRef.current.valueKey]] = option;
+          rs[option[props.valueKey]] = option;
           return rs;
         }, {});
         nextSelectedOptions = nextSelectedOptions.map((option) => {
@@ -113,9 +108,9 @@ const useAsyncMultiSelect = (props, ref) => {
           }
           return _options[option];
         });
-        localRef.current.setSelectedOptions(nextSelectedOptions);
+        setSelectedOptions(nextSelectedOptions);
       }).catch(() => {
-        localRef.current.setLoaders(prev => ({
+        setLoaders(prev => ({
           ...prev,
           isSelectedLoading: false,
           isSelectedSuccess: false,

@@ -20,7 +20,6 @@ const Pincode = React.memo(React.forwardRef(({
     return _values;
   });
   const _hiddenRef = hiddenRef || useRef();
-  const self = useRef({}).current;
   const ref = useRef();
   const valuesStr = useMemo(() => values.map(val => val || ' ').join(''), [values]);
   const isValid = useMemo(() => /^\S+$/.test(valuesStr), [valuesStr]);

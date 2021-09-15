@@ -61,10 +61,9 @@ const useMultipleCommon = (props, {
 
   const onClickOutside = useCallback(instance => instance.hide(), []);
 
-  localRef.current.onChanged = props.onChanged;
   useEffect(() => {
     if (localRef.current.isRendered) {
-      localRef.current.onChanged(value);
+      props.onChanged(value);
     }
     localRef.current.prevValue = value;
     localRef.current.isRendered = true;
