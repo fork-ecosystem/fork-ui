@@ -49,18 +49,14 @@ const Pincode = React.memo(React.forwardRef(({
     _hiddenRef.current.paste = paste;
   }, [paste]);
 
-  self.isValid = isValid;
-  self.valuesStr = valuesStr;
-  self.onPincodeChanged = onPincodeChanged;
-  self.onPincodeCompleted = onPincodeCompleted;
   useEffect(() => {
-    if (self.isValid) {
-      self.onPincodeChanged(valuesStr);
+    if (isValid) {
+      onPincodeChanged(valuesStr);
     }
   }, [valuesStr]);
   useEffect(() => {
     if (isValid) {
-      self.onPincodeCompleted(self.valuesStr);
+      onPincodeCompleted(valuesStr);
     }
   }, [isValid]);
   const updatePincodeAt = useCallback((index, value) => {
