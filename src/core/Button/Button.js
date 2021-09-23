@@ -17,13 +17,10 @@ const mBorders = Object.freeze({
   dashed: 'fbtn-dashed',
 });
 
-const lColors = Object.keys(mColors);
-const lBorders = Object.keys(mBorders);
-
 const Button = React.forwardRef(({
   className,
   icon,
-  size,
+  fontSize,
   style,
   children,
   loading,
@@ -63,8 +60,8 @@ const Button = React.forwardRef(({
         className,
       )}
       style={{
-        fontSize: size,
         ...style,
+        fontSize,
       }}
       disabled={loading || disabled}
       {...otherProps}
@@ -80,14 +77,14 @@ const Button = React.forwardRef(({
 Button.displayName = 'Button';
 Button.propTypes = {
   className: PropTypes.string,
-  color: PropTypes.oneOf(lColors),
+  color: PropTypes.oneOf([ 'default', 'primary', 'transparent', 'danger']),
   rounded: PropTypes.bool,
-  size: PropTypes.string,
+  fontSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   icon: PropTypes.any,
   style: PropTypes.object,
   children: PropTypes.any,
   loading: PropTypes.bool,
-  border: PropTypes.oneOf(lBorders),
+  border: PropTypes.oneOf(['solid', 'dashed']),
   disabled: PropTypes.bool,
 };
 Button.defaultProps = {

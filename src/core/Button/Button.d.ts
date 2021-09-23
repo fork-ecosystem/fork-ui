@@ -1,17 +1,10 @@
-import React, { ComponentPropsWithRef } from 'react';
-
-export type Props = {
-  className?: string,
+interface Props extends React.HTMLProps<HTMLButtonElement> {
   color?: 'default' | 'primary' | 'transparent' | 'danger',
-  rounded: boolean,
-  size?: string,
+  rounded?: boolean,
+  fontSize?: string | number,
   icon?: React.ReactNode,
-  style?: React.CSSProperties;
-  children?: React.ReactChildren,
   loading?: boolean,
   border?: 'solid' | 'dashed',
-  disabled?: boolean,
-  ref?: any,
 }
 
 declare const Button: (props: Props) => JSX.Element;
