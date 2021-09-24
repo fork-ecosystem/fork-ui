@@ -7,7 +7,7 @@ import Label from './Label';
 
 import PureBadge from './PureBadge';
 
-const Badge = f => f;
+const Badge = {};
 
 Badge.PureBadge = PureBadge;
 Badge.displayName = 'Badge';
