@@ -1,13 +1,19 @@
-import PureBadge from './PureBadge';
-import Counter from './Counter';
+import PureBadge, { PureBadgeProps } from './PureBadge';
+import Counter, { CounterProps } from './Counter';
+import Dot, { DotProps } from './Dot';
+import Label, { LabelProps } from './Label';
 
-interface CounterProps extends React.HTMLProps<PureBadge & Counter> {}
-declare const Counter: (props: CounterProps) => JSX.Element;
+type EnhanceCouterProps = PureBadgeProps & Pick<CounterProps, 'count' | 'overflow' | 'renderOverflow' | 'color'>;
+type EnhanceDotProps = PureBadgeProps & Pick<DotProps, 'color'>;
+type EnhanceLabelProps = PureBadgeProps & Pick<LabelProps, 'label' | 'color'>;
 
-type BadgeProps = {
-  PureBadge: PureBadge,
-  Counter: Counter,
+type BadgeType = {
+  PureBadge: (props: PureBadgeProps) => JSX.Element,
+  Counter: (props: EnhanceCouterProps) => JSX.Element,
+  Dot: (props: EnhanceDotProps) => JSX.Element,
+  Label: (props: EnhanceLabelProps) => JSX.Element,
 };
-declare const Badge: BadgeProps;
+declare const Badge: BadgeType;
 
 export default Badge;
+export { PureBadge };

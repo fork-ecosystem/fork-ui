@@ -1,4 +1,6 @@
-interface CounterProps extends React.HTMLProps<HTMLDivElement>{
+import { Property } from 'csstype';
+
+export interface CounterProps extends React.HTMLProps<HTMLDivElement>{
   count: number,
   overflow?: number,
   color?: Property.BackgroundColor
@@ -6,3 +8,4 @@ interface CounterProps extends React.HTMLProps<HTMLDivElement>{
 }
 
 declare const Counter: (props: CounterProps) => JSX.Element;
+export default Counter;

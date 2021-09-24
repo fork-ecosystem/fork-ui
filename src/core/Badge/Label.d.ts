@@ -1,4 +1,6 @@
-interface LabelProps extends React.HTMLProps<HTMLDivElement> {
+import { Property } from 'csstype';
+
+export interface LabelProps extends Omit<React.HTMLProps<HTMLDivElement>, 'label'> {
   label: React.ReactNode,
   color?: Property.BackgroundColor,
 }
