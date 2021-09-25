@@ -40,8 +40,6 @@ Avatar.propTypes = {
   className: PropTypes.string,
   src: PropTypes.string,
   shape: PropTypes.oneOf(lShape),
-  circle: PropTypes.bool,
-  square: PropTypes.bool,
   size: PropTypes.number,
   color: PropTypes.string,
   style: PropTypes.object,

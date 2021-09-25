@@ -13,6 +13,7 @@ type BadgeType = {
   Dot: (props: EnhanceDotProps) => JSX.Element,
   Label: (props: EnhanceLabelProps) => JSX.Element,
 };
+
 declare const Badge: BadgeType;
 
 export default Badge;
