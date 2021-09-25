@@ -26,7 +26,7 @@ export { default as Checkbox } from './Checkbox';
 // export { default as PureConfirm } from './PureConfirm';
 // export { default as Pincode } from './Pincode';
 // export { default as Popconfirm } from './Popconfirm';
-// export { default as Radio } from './Radio';
+export { default as Radio } from './Radio';
 // export { default as Searchbox } from './Searchbox';
 // export { default as Skeleton } from './Skeleton';
 // export { default as Stepper } from './Stepper';
