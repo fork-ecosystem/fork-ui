@@ -1,4 +1,4 @@
-interface ButtonGroupProps extends React.HTMLProps<HTMLDivElement> {
+export interface ButtonGroupProps extends React.HTMLProps<HTMLDivElement> {
   fluid?: boolean,
 }
 

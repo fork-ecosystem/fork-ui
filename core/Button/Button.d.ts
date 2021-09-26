@@ -1,4 +1,4 @@
-interface Props extends React.HTMLProps<HTMLButtonElement> {
+export interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
   color?: 'default' | 'primary' | 'transparent' | 'danger',
   rounded?: boolean,
   fontSize?: string | number,
@@ -7,5 +7,5 @@ interface Props extends React.HTMLProps<HTMLButtonElement> {
   border?: 'solid' | 'dashed',
 }
 
-declare const Button: (props: Props) => JSX.Element;
+declare const Button: (props: ButtonProps) => JSX.Element;
 export default Button;

@@ -3,11 +3,11 @@ import Counter, { CounterProps } from './Counter';
 import Dot, { DotProps } from './Dot';
 import Label, { LabelProps } from './Label';
 
-type EnhanceCouterProps = PureBadgeProps & Pick<CounterProps, 'count' | 'overflow' | 'renderOverflow' | 'color'>;
-type EnhanceDotProps = PureBadgeProps & Pick<DotProps, 'color'>;
-type EnhanceLabelProps = PureBadgeProps & Pick<LabelProps, 'label' | 'color'>;
+export type EnhanceCouterProps = PureBadgeProps & Pick<CounterProps, 'count' | 'overflow' | 'renderOverflow' | 'color'>;
+export type EnhanceDotProps = PureBadgeProps & Pick<DotProps, 'color'>;
+export type EnhanceLabelProps = PureBadgeProps & Pick<LabelProps, 'label' | 'color'>;
 
-type BadgeType = {
+export type BadgeType = {
   PureBadge: (props: PureBadgeProps) => JSX.Element,
   Counter: (props: EnhanceCouterProps) => JSX.Element,
   Dot: (props: EnhanceDotProps) => JSX.Element,

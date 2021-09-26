@@ -6,7 +6,7 @@ export interface RadioProps extends React.HTMLProps<HTMLInputElement> {
   color?: Property.Color,
 }
 
-export interface RadioFC { (props: RadioProps): JSX.Element; useRadioGroup: (defaultValue: any) => ReturnType }
+export interface RadioFC { (props: RadioProps): JSX.Element; useRadioGroup: (defaultValue: string) => ReturnType }
 declare const Radio: RadioFC;
 
 export default Radio;
